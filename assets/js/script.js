@@ -3,10 +3,10 @@ $(function () {
 
   /***Function: ValidateInputUser***/
   function validateInputUser(input) {
-    if (input > 0 & input <= 731)
+    if (input > 0) // greater than 732 validator by API
       return true;
     else {
-      alert('Ingrese ún número desde el 1 a 731.');
+      alert('Ingrese ún número desde el 1 a 732.');
       return false;
     }
   }
@@ -110,7 +110,10 @@ $(function () {
       type: a.method,
       dataType: 'json',
       success: function (json) {
-        renderData(json);
+        if (json.response == 'success')
+          renderData(json);
+        else
+          alert(`API responde:  ${json.error}`);
       },
       error: function (xhr, status) {
         alert('Disculpe, hubo un problema para acceder a la API.');
