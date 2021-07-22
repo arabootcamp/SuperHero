@@ -100,7 +100,7 @@ $(function () {
     $('#hero-biography-aliases').text(' ' + json.biography.aliases.toString().replaceAll(',', ', '));
     //Data Canvas
     createChart($('#chartContainer'), json.name, json.powerstats, 'pie');
-    varGlobal=1;
+    varGlobal = 1;
   }
 
   /***Function: RequestToAPI***/
