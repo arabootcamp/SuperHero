@@ -86,7 +86,7 @@ $(function () {
   /***Function: RenderData***/
   function renderData(json) {
     //Create HTML only one time
-    if (notHtmlInner)
+    if (noHtmlInner)
       $('#response').append(createHTML());
     //Data Card
     $('#hero-img').prop('src', ' ' + json.image.url);
@@ -100,7 +100,7 @@ $(function () {
     $('#hero-biography-aliases').text(' ' + json.biography.aliases.toString().replaceAll(',', ', '));
     //Data Canvas
     createChart($('#chartContainer'), json.name, json.powerstats, 'pie');
-    notHtmlInner = false;
+    noHtmlInner = false;
   }
 
   /***Function: RequestToAPI***/
@@ -122,7 +122,7 @@ $(function () {
   }
 
   /***MAIN***/
-  var notHtmlInner=true;
+  var noHtmlInner=true;
   let access = {
     url: 'https://superheroapi.com/api',
     token: '10158598456743026',
